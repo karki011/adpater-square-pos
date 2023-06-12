@@ -40,3 +40,6 @@ media/
 .pytest_cache/
 
 square-env
+
+square_client.py
+square_client.py
