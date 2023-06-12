@@ -1,0 +1,42 @@
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Dependency directories
+.env/
+.venv/
+env/
+env.bak/
+
+# Logs and backups
+*.log
+*.bak
+
+# Local development server
+server.pid
+
+# macOS specific files
+.DS_Store
+
+# Editor backups
+*~
+
+# Environment-specific files
+.env
+.env.*
+
+# Project-specific files or directories (modify as needed)
+app.db
+media/
+
+.pytest_cache/
+
+square-env
