@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Squaer API
+
+Resources:
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main.handler
+      Runtime: python3.8
+      CodeUri: .
+      Events:
+        MyApi:
+          Type: Api
+          Properties:
+            Path: /adapter/square/api
+            Method: get

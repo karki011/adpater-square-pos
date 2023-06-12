@@ -1,0 +1,27 @@
+name: Deploy to AWS Lambda
+
+on:
+  push:
+    branches:
+      - Feature/github-action
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.REGION }}
+
+      - name: Build and Package
+        run: sam build --use-container && sam package --output-template-file my-api-packaged.yaml --s3-bucket ${{ secrets.S3_BUCKET }}
+
+      - name: Deploy stack
+        run: sam deploy --template-file my-api-packaged.yaml --stack-name ${{ secrets.STACK_NAME }} --capabilities ${{ secrets.CAPABILITIES }} --region ${{ secrets.REGION }}
