@@ -71,9 +71,10 @@ The following endpoints are available in the Square Adapter API:
 
 ## Square Client Configuration
 
-The Square SDK requires valid credentials and configuration to connect to your Square account. To configure the Square client, open the `square._client.py` file and update the `Client` configuration as follows:
+The Square SDK requires valid credentials and configuration to connect to your Square account. To configure the Square client, create the `square._client.py` file and update the `Client` configuration as follows:
 
 ```python
+
 from square.client import Client
 
 client = Client(
