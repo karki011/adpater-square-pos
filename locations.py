@@ -50,6 +50,7 @@ router = APIRouter()
 
 @router.get("/", response_model=List[Location])
 def get_locations():
+    print('get_locations')
     result = client.locations.list_locations()
     tax_result = client.catalog.list_catalog(types='TAX')
 
