@@ -1,5 +1,7 @@
 
 from fastapi import FastAPI
+from mangum import Mangum
+
 from category import router as category_router
 
 from locations import router as locations_router
@@ -16,3 +18,5 @@ app.include_router(locations_router, prefix="/locations")
 app.include_router(items_router, prefix="/items")
 app.include_router(category_router, prefix="/categories")
 app.include_router(modifier_list_router, prefix="/modifier-list")
+
+handler = Mangum(app)
