@@ -13,6 +13,9 @@ from modifier_list import router as modifier_list_router
 app = FastAPI()
 
 
+@app.get("/")
+async def root():
+    return {"message": "Hello From square adapater"}
 
 app.include_router(locations_router, prefix="/locations")
 app.include_router(items_router, prefix="/items")
