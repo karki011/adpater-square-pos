@@ -13,11 +13,11 @@ from modifier_list import router as modifier_list_router
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/health")
 async def root():
     return {"message": "Hello From square adapater"}
 
-app.include_router(locations_router, prefix="/locations")
+app.include_router(locations_router, prefix="/")
 app.include_router(items_router, prefix="/items")
 app.include_router(category_router, prefix="/categories")
 app.include_router(modifier_list_router, prefix="/modifier-list")

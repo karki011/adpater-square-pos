@@ -13,5 +13,5 @@ Resources:
         MyApi:
           Type: Api
           Properties:
-            Path: /adapter/square/api/{proxy+} 
+            Path: /api/{proxy+} 
             Method: get
