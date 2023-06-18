@@ -14,4 +14,4 @@ Resources:
           Type: Api
           Properties:
             Path: /api/{proxy+} 
-            Method: get
+            Method: GET
