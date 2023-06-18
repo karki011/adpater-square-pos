@@ -24,4 +24,4 @@ jobs:
         run: sam build --use-container && sam package --output-template-file my-api-packaged.yaml --s3-bucket ${{ secrets.S3_BUCKET }}
 
       - name: Deploy stack
-        run: sam deploy --template-file my-api-packaged.yaml --stack-name ${{ secrets.STACK_NAME }} --capabilities ${{ secrets.CAPABILITIES }} --region ${{ secrets.REGION }}
+        run: sam deploy --template-file my-api-packaged.yaml --stack-name ${{ secrets.STACK_NAME }} --capabilities ${{ secrets.CAPABILITIES }} --region ${{ secrets.REGION }} --no-fail-on-empty-changeset
