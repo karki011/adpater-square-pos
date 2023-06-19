@@ -19,7 +19,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker buildx create --use
-          docker buildx build --platform linux/amd64 -t squareapi/square:latest .
+          docker buildx build --platform linux/amd64 -t squareapi/square .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
