@@ -18,7 +18,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/squareapi/square:${{ github.ref }}
+          tags: ghcr.io/squareapi/square:latest
+
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
