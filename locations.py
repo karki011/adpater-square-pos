@@ -1,7 +1,6 @@
 from typing import List, Optional
 from pydantic import BaseModel
 from fastapi import APIRouter, HTTPException
-from square.exceptions import ApiException
 from square_client import client  # import the client
 
 class Tax(BaseModel):
@@ -110,7 +109,7 @@ def get_locations():
             for error in result.errors:
                 error_details.append(f"{error['code']}: {error['detail']}")
             raise HTTPException(status_code=400, detail=error_details)
-    except ApiException as e:
+    except Exception as e:
         if e.code == 'UNAUTHORIZED':
             raise HTTPException(status_code=401, detail="Invalid token")
         else:
