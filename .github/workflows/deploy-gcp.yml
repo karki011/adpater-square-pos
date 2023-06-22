@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  PROJECT_ID: GCP_PROJECT_ID # TODO: update Google Cloud project id
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # TODO: update Google Cloud project id
   GAR_LOCATION: us # TODO: update Artifact Registry location
   REGION: us-central1 # TODO: update Cloud Run service region
   APP: app
