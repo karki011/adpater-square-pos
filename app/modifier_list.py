@@ -83,13 +83,11 @@ def get_single_modifier_list(id: str):
     result = client.catalog.retrieve_catalog_object(object_id=id, include_related_objects=True)
 
     if result.is_success():
-        if 'objects' in result.body:
-            for item in result.body['objects']:
-                if item['id'] == id:
-                    return ModifierList(**item)
-            raise HTTPException(status_code=404, detail="Modifier list not found")
+        if 'object' in result.body and result.body['object']['type'] == 'MODIFIER_LIST':
+            modifier_list = result.body['object']
+            return ModifierList(**modifier_list)
         else:
-            raise HTTPException(status_code=500, detail="No 'objects' key in response body")
+            raise HTTPException(status_code=404, detail="Modifier list not found")
     else:
         error_details = []
         for error in result.errors:

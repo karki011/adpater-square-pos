@@ -3,7 +3,7 @@ from unittest.mock import patch
 from fastapi.testclient import TestClient
 
 from main import app
-from locations import router as locations_router
+from app.locations import router as locations_router
 
 
 client = TestClient(app)
